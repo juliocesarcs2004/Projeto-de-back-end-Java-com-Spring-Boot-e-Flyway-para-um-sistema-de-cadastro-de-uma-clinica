@@ -1,0 +1,1 @@
+alter table pacientes MODIFY column cpf varchar(14) not null unique;
