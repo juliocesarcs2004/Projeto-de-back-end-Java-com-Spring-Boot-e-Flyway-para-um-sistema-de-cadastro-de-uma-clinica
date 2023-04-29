@@ -1,4 +1,4 @@
-package med.voll.api.infra;
+package med.voll.api.infra.exception;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +16,8 @@ public class TratadorDeErros {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity tratraErro400 (MethodArgumentNotValidException ex) {
+    public ResponseEntity tratarErro400 (MethodArgumentNotValidException ex) {
         var erros = ex.getFieldErrors();
-
 
         return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
     }
